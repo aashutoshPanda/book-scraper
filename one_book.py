@@ -16,4 +16,8 @@ description_paragraphs = description_article.find_all('p')
 price = float(description_paragraphs[0].get_text()[1:])
 description = description_paragraphs[3].get_text()
 rating = get_rating(description_paragraphs[2]['class'][1])
-print(price, description, rating)
+# print(price, description, rating)
+
+
+title = soup.find_all('h1')[0].get_text()
+print(title)
