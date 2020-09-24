@@ -14,3 +14,12 @@ def get_rating(str_num):
         return options[str_num]
     except:
         raise("string not a valid raing ")
+
+
+def get_stock(str):
+    stock_str = str.split()[2][1:]
+    return int(stock_str)
+
+
+def get_price(str):
+    return float(str[1:6])
