@@ -15,4 +15,5 @@ for page_no in range(1, 51):
         link = anchor_tag['href']
         print(link)
         count += 1
+
 print(count)
