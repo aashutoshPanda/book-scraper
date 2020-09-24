@@ -1,3 +1,4 @@
+from utils import get_rating
 from bs4 import BeautifulSoup
 import requests
 
@@ -9,5 +10,10 @@ soup = BeautifulSoup(page.content, 'html.parser')
 category_block = soup.find_all('ul', class_='breadcrumb')[0]
 category = category_block.find_all('li')[2].get_text()
 
-# description_div = soup.find_all('div', id='product_description')
-# print(description_div)
+description_article = soup.find_all('article', class_='product_page')[0]
+description_paragraphs = description_article.find_all('p')
+
+price = float(description_paragraphs[0].get_text()[1:])
+description = description_paragraphs[3].get_text()
+rating = get_rating(description_paragraphs[2]['class'][1])
+print(price, description, rating)
